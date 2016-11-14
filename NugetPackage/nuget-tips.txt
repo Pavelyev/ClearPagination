@@ -1,0 +1,2 @@
+nuget.exe setApiKey XXXXXXXXXXXXXXXX -Source https://www.nuget.org/api/v2/package
+nuget push Pavelyev.ClearPagination.X.X.X.nupkg -Source https://www.nuget.org/api/v2/package

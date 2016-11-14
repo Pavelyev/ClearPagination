@@ -2,13 +2,14 @@
 <package >
   <metadata>
     <id>Pavelyev.ClearPagination</id>
-    <version>0.2.2</version>
+    <version>0.2.3</version>
     <title>Pagination with no dependencies</title>
     <authors>Pavelyev</authors>
     <owners>Pavelyev</owners>
+    <projectUrl>https://github.com/Pavelyev/ClearPagination</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Pagination with no dependecies. Can be used for extracting data with entity framework with convenience</description>
-    <releaseNotes>First release</releaseNotes>
+    <releaseNotes>Added projectUrl</releaseNotes>
     <copyright>Copyright 2016 Pavelyev</copyright>
     <tags>pagination</tags>
   </metadata>

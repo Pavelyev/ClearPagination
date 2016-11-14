@@ -11,7 +11,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            var pagination = new PaginationModel();
+            var pagination = new Pagination();
         }
     }
 }

@@ -20,7 +20,6 @@ Just package for paginate any IEnumerable results. Useful for EF.
         Url = MakeUrlForAnswer(x.Id), 
         Path = Path.Combine(imagesPath, $"{x.Id}.jpg")
     });
-    var q = db.Answers.Take(5);
 
     foreach (var item in res.List)
     {

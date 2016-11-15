@@ -4,17 +4,20 @@ namespace ClearPagination
 {
     public class Pagination
     {
-        public int Page { get; set; } = 1;
-        public int PageSize { get; set; } = 20;
+        public int Page { get; set; }
+        public int PageSize { get; set; }
         public int SelectedRows { get; set; }
 
         public Pagination()
         {
+            Page = 1;
+            PageSize = 20;
         }
 
-        public Pagination(int? page)
+        public Pagination(int page, int pageSize = 20)
         {
-            Page = page ?? 1;
+            Page = page;
+            PageSize = pageSize;
         }
 
         public int RowsFrom => (Page - 1) * PageSize + 1;

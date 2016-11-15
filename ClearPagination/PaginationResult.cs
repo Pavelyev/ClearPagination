@@ -4,6 +4,10 @@ namespace ClearPagination
 {
     public class PaginationResult<TItemType>
     {
+        public PaginationResult()
+        {
+
+        }
         public PaginationResult(IEnumerable<TItemType> list, Pagination pagination)
         {
             List = list;

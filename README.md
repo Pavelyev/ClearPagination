@@ -1,7 +1,11 @@
 # ClearPagination
 
-Just package for paginate any IEnumerable results.
+Just package for paginate any IEnumerable results. Package have to dependencies.
 
+How to install:
+
+    Install-Package Pavelyev.ClearPagination
+    
 How to use:
 
     var model = db.ApplicationUsers.Select(x => new

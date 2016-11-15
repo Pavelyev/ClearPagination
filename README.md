@@ -1,7 +1,9 @@
 # ClearPagination
 
 Just package for paginate any IEnumerable results.
+
 How to use:
+
     var model = db.ApplicationUsers.Select(x => new
     {
         x.Id,

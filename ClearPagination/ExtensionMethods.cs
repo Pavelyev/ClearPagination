@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace ClearPagination
@@ -12,12 +11,19 @@ namespace ClearPagination
         /// </summary>
         /// <param name="collection">Collection to be paginated</param>
         /// <param name="pagination">Pagination object</param>
+        /// <param name="materializeFunction">Function than will be applied to collection</param>
         /// <returns>Model containing subcollection and pagination object</returns>
-        public static PaginationResult<T> Paginate<T>(this IEnumerable<T> collection, Pagination pagination)
+        public static PaginationResult<T> Paginate<T>(this IEnumerable<T> collection, Pagination pagination,
+            Func<IEnumerable<T>, IEnumerable<T>> materializeFunction = null)
         {
             pagination.SelectedRows = collection.Count();
+            var taken = collection.Skip((pagination.Page - 1) * pagination.PageSize).Take(pagination.PageSize);
+            if (materializeFunction != null)
+            {
+                taken = materializeFunction(taken);
+            }
             return new PaginationResult<T>(
-                collection.Skip((pagination.Page - 1) * pagination.PageSize).Take(pagination.PageSize),
+                taken,
                 pagination
             );
         }
@@ -28,9 +34,22 @@ namespace ClearPagination
         /// <param name="collection">Collection to be paginated</param>
         /// <param name="page">Page number</param>
         /// <param name="pageSize">Size of page</param>
+        /// <param name="materializeFunction">Function than will be applied to collection</param>
         /// <returns>Model containing subcollection and pagination object</returns>
-        public static PaginationResult<T> Paginate<T>(this IEnumerable<T> collection, int page, int pageSize = 20)
-            => collection.Paginate(new Pagination(page, pageSize));
+        public static PaginationResult<T> Paginate<T>(this IEnumerable<T> collection, int page, int pageSize = 20,
+            Func<IEnumerable<T>, IEnumerable<T>> materializeFunction = null)
+            => collection.Paginate(new Pagination(page, pageSize), materializeFunction);
+
+        /// <summary>
+        /// Paginates collection
+        /// </summary>
+        /// <param name="collection">Collection to be paginated</param>
+        /// <param name="page">Page number</param>
+        /// <param name="materializeFunction">Function than will be applied to collection</param>
+        /// <returns>Model containing subcollection and pagination object</returns>
+        public static PaginationResult<T> Paginate<T>(this IEnumerable<T> collection, int page, 
+            Func<IEnumerable<T>, IEnumerable<T>> materializeFunction = null)
+            => collection.Paginate(new Pagination(page, 20));
 
         /// <summary>
         /// Change collection type of List in PaginationResults

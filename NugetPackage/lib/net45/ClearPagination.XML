@@ -4,22 +4,32 @@
         <name>ClearPagination</name>
     </assembly>
     <members>
-        <member name="M:ClearPagination.ExtensionMethods.Paginate``1(System.Collections.Generic.IEnumerable{``0},ClearPagination.Pagination)">
+        <member name="M:ClearPagination.ExtensionMethods.Paginate``1(System.Collections.Generic.IEnumerable{``0},ClearPagination.Pagination,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})">
             <summary>
             Paginates collection
             </summary>
             <param name="collection">Collection to be paginated</param>
             <param name="pagination">Pagination object</param>
+            <param name="materializeFunction">Function than will be applied to collection</param>
             <returns>Model containing subcollection and pagination object</returns>
         </member>
-        <member name="M:ClearPagination.ExtensionMethods.Paginate``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+        <member name="M:ClearPagination.ExtensionMethods.Paginate``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})">
             <summary>
             Paginates collection
             </summary>
             <param name="collection">Collection to be paginated</param>
             <param name="page">Page number</param>
             <param name="pageSize">Size of page</param>
-            <param name="materializeFunc">Func to be applied on collecton after Skip and Take methods</param>
+            <param name="materializeFunction">Function than will be applied to collection</param>
+            <returns>Model containing subcollection and pagination object</returns>
+        </member>
+        <member name="M:ClearPagination.ExtensionMethods.Paginate``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Paginates collection
+            </summary>
+            <param name="collection">Collection to be paginated</param>
+            <param name="page">Page number</param>
+            <param name="materializeFunction">Function than will be applied to collection</param>
             <returns>Model containing subcollection and pagination object</returns>
         </member>
         <member name="M:ClearPagination.ExtensionMethods.Cast``2(ClearPagination.PaginationResult{``1},System.Func{``1,``0})">

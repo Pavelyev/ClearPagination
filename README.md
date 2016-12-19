@@ -41,7 +41,7 @@ Example of Cast() method, useful in Entity Framework:
         x.QuestionId,
         x.Text
     })
-    .Paginate(5, pageSize: 3)
+    .Paginate(5, pageSize: 3, materializeFunction: x => x.ToList())
     .Cast(x => new
     {
         // any functions can be used, so you can prepare data for use

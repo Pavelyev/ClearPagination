@@ -11,7 +11,6 @@ namespace ClearPagination
         /// </summary>
         /// <param name="collection">Collection to be paginated</param>
         /// <param name="pagination">Pagination object</param>
-        /// <param name="materializeFunction">Function than will be applied to collection</param>
         /// <returns>Model containing subcollection and pagination object</returns>
         public static PaginationResult<T> Paginate<T>(this IEnumerable<T> collection, Pagination pagination)
         {
@@ -52,7 +51,6 @@ namespace ClearPagination
         /// <param name="collection">Collection to be paginated</param>
         /// <param name="page">Page number</param>
         /// <param name="pageSize">Size of page</param>
-        /// <param name="materializeFunction">Function than will be applied to collection</param>
         /// <returns>Model containing subcollection and pagination object</returns>
         public static PaginationResult<T> Paginate<T>(this IEnumerable<T> collection, int page, int pageSize = 20)
             => collection.Paginate(new Pagination(page, pageSize));

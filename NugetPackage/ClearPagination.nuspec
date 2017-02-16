@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Pavelyev.ClearPagination</id>
-    <version>0.3.0</version>
+    <version>0.4.0</version>
     <title>Pagination with no dependencies</title>
     <authors>Pavelyev</authors>
     <owners>Pavelyev</owners>
